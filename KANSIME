@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+void printDivisors(int n) {
+    cout << "The divisors of " << n << " are:" << endl;
+    for (int i = n; i >= 1; i--) {
+        if (n % i == 0) {
+            cout << i << endl;
+        }
+    }
+}
+
+int main() {
+    int num;
+    char response;
+
+    cout << "This program is designed to exhibit the positive divisors of positive integers supplied by you." << endl;
+    cout << "The program will repeatedly prompt you to enter a positive integer." << endl;
+    cout << "Each time you enter a positive integer, the program will print all the divisors of your integer in a column and in decreasing order." << endl;
+
+    while (true) {
+        cout << "Please enter a positive integer: ";
+        cin >> num;
+        if (num <= 0) {
+            cout << num << " is not a positive integer." << endl;
+            continue;
+        }
+        printDivisors(num);
+        cout << "Would you like to see the divisors of another integer (Y/N)? ";
+        cin >> response;
+        if (response == 'n' || response == 'N') {
+            break;
+        }
+    }
+
+    return 0;
+}
